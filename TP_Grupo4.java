@@ -38,7 +38,7 @@ public class TP_GrupoXX {
 
         // TODO: Mostrar el menu con las opciones 1, 2, 3, 4 y 5.
 
-        // TODO: Leer y validar la opcion elegida.
+        // TODO: Leer y validar la opcion elegida
 
         // TODO: Repetir el menu hasta que se elija la opcion 5
         //       o se hayan acumulado 3 opciones incorrectas,
