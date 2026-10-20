@@ -36,26 +36,39 @@ public class TP_GrupoXX {
 
         // TODO: Elegir e imprimir el nombre y el logo de la consola.
 
-        // TODO: Mostrar el menu con las opciones 1, 2, 3, 4 y 5.
-
-        // TODO: Leer y validar la opcion elegida.
-
-        // TODO: Repetir el menu hasta que se elija la opcion 5
-        //       o se hayan acumulado 3 opciones incorrectas,
-        //       aunque no sean consecutivas.
-
-        // TODO: Usar una estructura de seleccion para llamar
-        //       al metodo correspondiente a cada opcion.
-        //       Nombres propuestos para esas llamadas:
-        //       opcion1SoVYNE();
-        //       opcion2ProDeLB();
-        //       opcion3Rover();
-        //       opcion4Regolito();
-        //       opcion5Salir();
-
-        // IMPORTANTE: Las llamadas estan comentadas a proposito.
-        // La persona que integre el menu debe ubicarlas dentro
-        // de la estructura de seleccion que decida el equipo.
+        Scanner scanner = new Scanner(System.in);
+        
+        final int ERRORESCONS = 3;
+        int N1,N2,N3,N4,N5;
+        int opcion =0, fallasconsecutivas = 0;
+        
+        do{
+       System.out.println("ingrese una de las siguientes opciones: ");
+       System.out.println("1-Estado del SoVYNE(Soporte vital y nivel de emergencia).");
+       System.out.println("2-Gestion ProDeLB-de Protocolos de la Base.");
+       System.out.println("3-Simulacion de Trayectoria del Rover.");
+       System.out.println("4-Analisis Secuencial de Muestras de Regolito Marciano.");
+       System.out.println("5-Salir del Sistema.");
+       opcion = scanner.nextInt();
+        switch(opcion){
+            
+            case 1:{
+                  System.out.println("Seleccionaste la opcion 1: ");
+                  fallasconsecutivas =0;
+                  break;}
+            case 2: {
+                  System.out.println("Seleccionaste la opcion 2: ");
+                  fallasconsecutivas =0;
+                  break;}      
+            case 3:
+                  System.out.println("Seleccionaste la opcion 3: ");
+                  fallasconsecutivas =0;
+                  break;
+            case 4: 
+                  System.out.println("Seleccionaste la opcion 4: ");
+                  fallasconsecutivas =0;
+                  break;
+        
     }
 
     // ============================================================
@@ -148,9 +161,29 @@ public class TP_GrupoXX {
     // ============================================================
 
     public static void opcion5Salir() {
-        // TODO: Mostrar el mensaje de cierre de telemetria
-        //       y desconexion segura del enlace satelital.
-        // TODO: Coordinar con main la finalizacion del programa.
+       case 5:
+                  System.out.println("Seleccionaste la opcion 5: ");
+                  fallasconsecutivas =0;
+                  System.out.println("Cierre del Programa. Mision realizada con exito...");
+                  System.out.println("Esperamos que nuestros valores sean de ayuda para toda la nave Nodriza y si no sobrevivimos que nos recuerden como heroes que hicimos lo que teniamos que hacer.....");
+                  System.out.println("Desconexion segura del enlase satelital...");
+                  System.out.println("@@@@  @   @ @@@@@ @   @    @   @ @@@  @@@    @@@ @@@@@    @   @  @@@  @@@@  @@@@  @@@ @@@@@  @@@ ");
+                  System.out.println("@   @ @   @ @     @@  @    @   @  @  @   @    @  @        @@  @ @   @ @   @ @   @  @     @  @   @ ");
+                  System.out.println("@@@@  @   @ @@@@  @ @ @    @   @  @  @@@@@    @  @@@@     @ @ @ @   @ @   @ @@@@   @    @   @@@@@ ");
+                  System.out.println("@   @ @   @ @     @  @@     @ @   @  @   @ @  @  @        @  @@ @   @ @   @ @  @   @   @    @   @ ");
+                  System.out.println("@@@@   @@@  @@@@@ @   @      @   @@@ @   @  @@   @@@@@    @   @  @@@  @@@@  @   @ @@@ @@@@@ @   @ ");
+            default:
+                  System.out.println("Seleccionaste un valor no valido: ");
+                  fallasconsecutivas++;
+             if (fallasconsecutivas == ERRORESCONS) {
+                        System.out.println("Se cierra el sistema porque hubo " + ERRORESCONS + " fallas consecutivas");
+                    } else {
+                        System.out.println("Te quedan " + (ERRORESCONS - fallasconsecutivas) + " fallas consecutivas disponibles.");
+                    }
+                    break; 
+        }
+        }while(opcion != 5 && fallasconsecutivas < ERRORESCONS);      
+           
     }
 
     // Metodos auxiliares de la OPCION 5: agregarlos aqui.
