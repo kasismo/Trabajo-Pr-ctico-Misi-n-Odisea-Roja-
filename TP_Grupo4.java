@@ -246,17 +246,95 @@ public class TP_Grupo4 {
     // RESPONSABLE: _____________________________________________
     // ============================================================
 
-    public static void opcion4Regolito() {
-        // TODO: Pedir y validar la cantidad de muestras.
-        // TODO: Para cada muestra, solicitar porcentaje de oxido
-        //       de hierro (0 a 100%) y presencia de perclorato.
-        // TODO: Validar cada dato antes de usarlo.
-        // TODO: Llevar acumuladores y contadores SIN arreglos.
-        // TODO: Calcular promedio de hierro, concentracion
-        //       maxima y su numero de muestra, y toxicidad.
-        // TODO: Imprimir reporte individual y reporte final.
-        // TODO: Clasificar el lote segun los umbrales del ANEXO.
+    // Queda encapsulada en su propio método recibiendo el Scanner
+    public static void opcion4Regolito(Scanner scanner) {
+        System.out.println("Operador está validando la geología marciana ");
+        
+        int CantidadMuestras;
+        
+        do {
+            System.out.println("Ingrese la cantidad de muestras que quiere analizar:");
+            CantidadMuestras = scanner.nextInt();
+        } while (CantidadMuestras <= 0);
+        
+        double PorcentajeHierro;
+        double CantidadHierro = 0;
+        double PromedioHierro;
+        double Maximo = 0;
+        double Minimo = 100;
+        int MuestraMaximo = 0;
+        int MuestrasToxicas = 0;
+        double PorcentajeToxicidad;
+        
+        for (int i = 1; i <= CantidadMuestras; i++) {
+            
+            // 1. Validar el porcentaje de hierro
+            do {
+                System.out.println("Muestra numero " + i + " - Ingrese el porcentaje de hierro:");
+                PorcentajeHierro = scanner.nextDouble();
+                
+                if (PorcentajeHierro < 0 || PorcentajeHierro > 100) {
+                    System.out.println("Error: El porcentaje debe estar entre 0 y 100%.");
+                }
+            } while (PorcentajeHierro < 0 || PorcentajeHierro > 100);
+                
+            // Se suma el hierro acumulado
+            CantidadHierro = CantidadHierro + PorcentajeHierro;
+            
+            // 2. Calcular máximo y mínimo
+            if (i == 1 || PorcentajeHierro > Maximo) {
+                Maximo = PorcentajeHierro;
+                MuestraMaximo = i;
+            }
+            Minimo = Math.min(Minimo, PorcentajeHierro);
+            
+            // 3. Completar el do-while de percloratos
+            char perclorato;
+            do {
+                System.out.println("¿Presencia de percloratos? (s/n):");
+                perclorato = scanner.next().charAt(0);
+                
+                if (perclorato != 's' && perclorato != 'S' && perclorato != 'n' && perclorato != 'N') {
+                    System.out.println("Error: Ingrese solo 's' o 'n'.");
+                }
+            } while (perclorato != 's' && perclorato != 'S' && perclorato != 'n' && perclorato != 'N');
+            
+            // Se suma toxicidad solo si la respuesta es afirmativa
+            if (perclorato == 's' || perclorato == 'S') {
+                MuestrasToxicas = MuestrasToxicas + 1;
+            }
+            
+            // Reporte individual obligatorio
+            System.out.println("--- Reporte Muestra " + i + " ---");
+            System.out.println("Hierro: " + PorcentajeHierro + "%");
+            if (perclorato == 's' || perclorato == 'S') {
+                System.out.println("Condición: Tóxica");
+            } else {
+                System.out.println("Condición: Segura");
+            }
+            System.out.println("------------------------");
+        }
+        
+        // 4. Reporte y cálculos consolidados
+        System.out.println("\n=== REPORTE FINAL DEL LOTE ===");
+        System.out.println("Total de muestras: " + CantidadMuestras);
+        System.out.println("Mayor porcentaje de hierro: " + Maximo);
+        System.out.println("Numero de muestra con más hierro: " + MuestraMaximo);
+        
+        PromedioHierro = CantidadHierro / CantidadMuestras;
+        System.out.println("Promedio de Hierro: " + PromedioHierro + "%");
+        
+        PorcentajeToxicidad = (MuestrasToxicas * 100.0) / CantidadMuestras;
+        System.out.println("Porcentaje de toxicidad: " + PorcentajeToxicidad + "%");
+        
+        // 5. Decisión final
+        if (PromedioHierro > 45.0 && PorcentajeToxicidad < 25.0) {
+            System.out.println("Clasificación final: LOTE APTO");
+        } else {
+            System.out.println("Clasificación final: LOTE DESCARTADO");
+        }
     }
+}
 
     // Metodos auxiliares de la OPCION 4: agregarlos aqui.
 
