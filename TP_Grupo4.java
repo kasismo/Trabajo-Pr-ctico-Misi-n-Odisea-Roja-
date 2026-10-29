@@ -64,16 +64,55 @@ public class TP_GrupoXX {
     // ============================================================
 
     public static void opcion1SoVYNE() {
-        // TODO: Pedir oxigeno (de 0 a 100%), agua (litros)
-        //       y energia (kWh).
-        // TODO: Validar cada entrada y permitir reingreso
-        //       indefinido cuando sea necesario.
-        // TODO: Determinar la condicion de la base segun
-        //       los umbrales establecidos en la consigna.
-        // TODO: Mostrar la alerta que corresponda.
-        // TODO: Si hacen falta subcalculos, crear aqui debajo
-        //       metodos static con parametros y retornos claros.
-    }
+    Scanner scanner = new Scanner(System.in);
+
+        double oxigeno;
+        int agua;
+        double energia;
+
+        do {
+            System.out.println("Ingrese el nivel actual del Oxigeno");
+            oxigeno = scanner.nextDouble();
+
+            if (oxigeno >= 0 && oxigeno <= 100) {
+                System.out.println("Valor ingresado correctamente");
+            } else {
+                System.out.println("Valor invalido, intente nuevamente");
+            }
+
+        } while (oxigeno < 0 || oxigeno > 100);
+
+        do {
+            System.out.println("Ingrese el nivel actual del Agua");
+            agua = scanner.nextInt();
+
+            if (agua >= 0) {
+                System.out.println("Valor ingresado correctamente");
+            } else {
+                System.out.println("Valor invalido, intente nuevamente");
+            }
+
+        } while (agua < 0);
+
+        do {
+            System.out.println("Ingrese el nivel actual de Energia");
+            energia = scanner.nextDouble();
+
+            if (energia >= 0 && energia <= 200) {
+                System.out.println("Valor ingresado correctamente");
+            } else {
+                System.out.println("Valor invalido, intente nuevamente");
+            }
+
+        } while (energia < 0 || energia > 200);
+
+        if (oxigeno < 20 || energia < 15) {
+            System.out.println("ALERTA CRÍTICA: Priorizar soporte de vida");
+        } else if (agua < 50 && oxigeno >= 20) {
+            System.out.println("PRECAUCIÓN: Racionamiento hídrico activado");
+        } else {
+            System.out.println("CONDICIÓN ÓPTIMA: Hábitat presurizado y estable");
+        }
 
     // Metodos auxiliares de la OPCION 1: agregarlos aqui.
 
