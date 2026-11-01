@@ -140,7 +140,12 @@ public class TP_Grupo4 {
             System.out.println("d) Modo reposo.");
             System.out.println("z) Volver al menu principal.");
             
-            letra = scanner.next().trim().toLowerCase().charAt(0);
+            String entradaProDeLB = scanner.next().trim().toLowerCase();
+            if (entradaProDeLB.length() == 1) {
+                letra = entradaProDeLB.charAt(0);
+            } else {
+                letra = 'x'; 
+            }
 
             switch (letra) {
                 case 'a': {
@@ -437,8 +442,10 @@ public class TP_Grupo4 {
             System.out.println("--- Reporte Muestra " + i + " ---");
             System.out.println("Hierro: " + PorcentajeHierro + "%");
             if (perclorato == 's' || perclorato == 'S') {
+                System.out.println("Presencia de perclorato: Sí");
                 System.out.println("Condición: Tóxica");
             } else {
+                System.out.println("Presencia de perclorato: No");
                 System.out.println("Condición: Segura");
             }
             System.out.println("------------------------");
