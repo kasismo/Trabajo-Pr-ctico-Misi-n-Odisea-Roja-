@@ -1,7 +1,7 @@
 package grupo4;
 import java.util.Scanner;
 
-public class Grupo4 {
+public class Grupo4F {
 
 
 
