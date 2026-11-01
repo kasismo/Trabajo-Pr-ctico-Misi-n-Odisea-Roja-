@@ -38,7 +38,6 @@ public class TP_Grupo4 {
         System.out.println("        '////I\\\\\\\'");
         System.out.println("          '//I\\\'");
         System.out.println("            'I'");
-        System.out.println("[ LOGO ]\n");
 
         do {
             System.out.println("ingrese una de las siguientes opciones: ");
