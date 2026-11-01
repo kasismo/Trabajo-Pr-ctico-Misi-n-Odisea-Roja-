@@ -11,7 +11,7 @@ public class TP_Grupo4 {
     
     
    
-    // SECCION COMPARTIDA: MENU PRINCIPAL Y COORDINACION
+    // SECCION MENU PRINCIPAL Y COORDINACION
     
 
     public static void main(String[] args) {
