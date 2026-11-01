@@ -1,17 +1,9 @@
 package grupo4;
 import java.util.Scanner;
 
-
-
-
 public class TP_Grupo4 {
 
-    
-    
-    
-   
     // SECCION MENU PRINCIPAL Y COORDINACION
-    
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
@@ -32,10 +24,10 @@ public class TP_Grupo4 {
         System.out.println("    ////////I\\\\\\\\\\\\\\\\");
         System.out.println("   /////////I\\\\\\\\\\\\\\\\\\");
         System.out.println("  //////////I\\\\\\\\\\\\\\\\\\\\");
-        System.out.println("   '////////I\\\\\\\\\\\\\\\'");
-        System.out.println("NDZ   '//////I\\\\\\\\\\\'");
-        System.out.println("        '////I\\\\\\\'");
-        System.out.println("          '//I\\\'");
+        System.out.println("   '////////I\\\\\\\\\\\\\\'");
+        System.out.println("NDZ   '//////I\\\\\\\\\\\\'");
+        System.out.println("        '////I\\\\\\\\'");
+        System.out.println("          '//I\\\\'");
         System.out.println("            'I'");
 
         do {
