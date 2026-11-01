@@ -37,7 +37,21 @@ public class TP_Grupo4 {
             System.out.println("3-Simulacion de Trayectoria del Rover.");
             System.out.println("4-Analisis Secuencial de Muestras de Regolito Marciano.");
             System.out.println("5-Salir del Sistema.");
-            opcion = scanner.nextInt();
+            
+            String entrada = scanner.next();
+            if (entrada.length() == 1 && entrada.charAt(0) == '1') {
+                opcion = 1;
+            } else if (entrada.length() == 1 && entrada.charAt(0) == '2') {
+                opcion = 2;
+            } else if (entrada.length() == 1 && entrada.charAt(0) == '3') {
+                opcion = 3;
+            } else if (entrada.length() == 1 && entrada.charAt(0) == '4') {
+                opcion = 4;
+            } else if (entrada.length() == 1 && entrada.charAt(0) == '5') {
+                opcion = 5;
+            } else {
+                opcion = 0;
+            }
 
             switch (opcion) {
                 case 1:
