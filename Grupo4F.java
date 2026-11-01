@@ -17,7 +17,7 @@ public class TP_Grupo4 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         final int ERRORESCONS = 3;
-        int N1, N2, N3, N4, N5; // Variables originales que tenían
+        int N1, N2, N3, N4, N5; 
         int opcion = 0, fallasconsecutivas = 0;
 
         // El nombre y logo
@@ -133,7 +133,7 @@ public class TP_Grupo4 {
     }
 
    
-    // OPCION 2: GESTION ProDeLB - PROTOCOLOS DE LA BASE
+    // OPCION 2: GESTION ProDeLB PROTOCOLOS
     
     public static void opcion2ProDeLB(Scanner scanner) {
         final double CONSUMO_AGUA_POR_HORA = 3.5;
@@ -385,7 +385,7 @@ public class TP_Grupo4 {
     }
 
     
-    // OPCION 4: ANALISIS SECUENCIAL DE REGOLITO MARCIANO
+    // OPCION 4: ANALISIS SECUENCIAL DE REGOLITO
     
     public static void opcion4Regolito(Scanner scanner) {
         System.out.println("Operador está validando la geología marciana ");
@@ -431,7 +431,7 @@ public class TP_Grupo4 {
                 if (entradaPerclorato.length() == 1) {
                     perclorato = entradaPerclorato.charAt(0);
                 } else {
-                    perclorato = 'x'; // Forzamos un caracter inválido para que repita el ciclo
+                    perclorato = 'x';
                 }
                 
                 if (perclorato != 's' && perclorato != 'S' && perclorato != 'n' && perclorato != 'N') {
