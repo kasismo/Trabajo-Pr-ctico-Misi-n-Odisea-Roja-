@@ -1,5 +1,7 @@
-package grupo4;
+package TP_Grupo4;
+
 import java.util.Scanner;
+
 
 public class TP_Grupo4 {
 
@@ -37,7 +39,7 @@ public class TP_Grupo4 {
             System.out.println("3-Simulacion de Trayectoria del Rover.");
             System.out.println("4-Analisis Secuencial de Muestras de Regolito Marciano.");
             System.out.println("5-Salir del Sistema.");
-            opcion = scanner.nextInt();
+            
 
             switch (opcion) {
                 case 1:
