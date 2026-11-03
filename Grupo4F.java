@@ -1,4 +1,4 @@
-package Tp_Grupo4;
+package grupo4;
 import java.util.Scanner;
 
 public class TP_Grupo4 {
