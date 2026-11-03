@@ -13,23 +13,46 @@ public class TP_Grupo4 {
         int fallasconsecutivas = 0;
 
         // El nombre y logo
-        System.out.println("--- Nodriza IV ---");
-        System.out.println("            ^");
-        System.out.println("           /A\\");
-        System.out.println("          //I\\\\");
-        System.out.println("         ///I\\\\\\");
-        System.out.println("        ////I\\\\\\\\");
-        System.out.println("       /////I\\\\\\\\\\");
-        System.out.println("      //////I\\\\\\\\\\\\");
-        System.out.println("     ///////I\\\\\\\\\\\\\\");
-        System.out.println("    ////////I\\\\\\\\\\\\\\\\");
-        System.out.println("   /////////I\\\\\\\\\\\\\\\\\\");
-        System.out.println("  //////////I\\\\\\\\\\\\\\\\\\\\");
-        System.out.println("   '////////I\\\\\\\\\\\\\\'");
-        System.out.println("NDZ   '//////I\\\\\\\\\\\\'");
-        System.out.println("        '////I\\\\\\\\'");
-        System.out.println("          '//I\\\\'");
-        System.out.println("            'I'");
+        System.out.println("                                                                    @   @  @@@  @@@@  @@@@  @@@ @@@@@  @@@     @@@ @   @                   \n" +
+"                                                                    @@  @ @   @ @   @ @   @  @     @  @   @     @  @   @                   \n" +
+"                                          @@@@ @@@@ @@@@    @ @ @ @   @ @   @ @@@@   @    @   @@@@@     @  @   @    @@@@ @@@@ @@@@ \n" +
+"                                                                    @  @@ @   @ @   @ @  @   @   @    @   @     @   @ @                  \n" +
+"                                                                    @   @  @@@  @@@@  @   @ @@@ @@@@@ @   @    @@@   @                     ");
+        
+         System.out.println("                                                                                                   \n" +
+"                                                                                                   \n" +
+"                                                                                                   \n" +
+"                                                                                                   \n" +
+"                               :+*+:                               \n" +
+"                            :*=.   .=*:                             \n" +
+"                        **-..   -*-   ..=**                        \n" +
+"                  .*#*.      :#+      =#:      .*#*.                 \n" +
+"               =*:         .#*.            .*#.         :*=            \n" +
+"             ::   .:*##.             .            .##*:    ::          \n" +
+"             .:. +:                -= =-                :+ .:.          \n" +
+"              =- .:               -==*-=-               .. -=            \n" +
+"              =-  +:             :+-*:=-=:            :+  -=            \n" +
+"              :-. +:            := :+=+-.:.            :+  -:            \n" +
+        "               =-  +:          .=+       +=.          :+  -=             \n" +
+"               :-. -:         .+.-       +:+.         :- .-:             \n" +
+"                =-  *.        .*:+       +:+.        .*  -=              \n" +
+"                 +:  *.       .-:+       .-.-.       .*  :+              \n" +
+"                  =:  *.      : .+*-..::++. :      .*  :+               \n" +
+"                  .=.  #      -+++.:: -: +==-      *  .=.               \n" +
+"                   .+.  #.      .--.=+-.=:       .#  .+.                \n" +
+"                    *.  -+      .-:.. --.      +:  .*                  \n" +
+"                     -=  :+      .-- --       *:  =-                   \n" +
+"                      .*   -+      -*:      +-   *.                    \n" +
+"                       *=  :+.         *:  =*                      \n" +
+"                         .*   :+        +:   *                        \n" +
+"                           .*   -=   =:   *.                          \n" +
+"                             :+.  -*-  +:                             \n" +
+"                               :=.   .=:                               \n" +
+"                                 :+**:                               \n" +
+"                                                                                                   \n" +
+"                                                                                                   \n" +
+"                                                                                                   \n" +
+"                                                                                                   ");
 
         do {
             System.out.println("ingrese una de las siguientes opciones: ");
