@@ -1,7 +1,5 @@
-package TP_Grupo4;
-
+package Tp_Grupo4;
 import java.util.Scanner;
-
 
 public class TP_Grupo4 {
 
@@ -10,8 +8,9 @@ public class TP_Grupo4 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         final int ERRORESCONS = 3;
-        int N1, N2, N3, N4, N5; 
-        int opcion = 0, fallasconsecutivas = 0;
+        String opcion = ""; 
+        boolean continuar = true;
+        int fallasconsecutivas = 0;
 
         // El nombre y logo
         System.out.println("--- Nodriza IV ---");
@@ -40,27 +39,29 @@ public class TP_Grupo4 {
             System.out.println("4-Analisis Secuencial de Muestras de Regolito Marciano.");
             System.out.println("5-Salir del Sistema.");
             
+            opcion = scanner.next();
 
             switch (opcion) {
-                case 1:
+                case "1":
                     System.out.println("Seleccionaste la opcion 1: ");
                     opcion1SoVYNE(scanner);
                     break;
-                case 2:
+                case "2":
                     System.out.println("Seleccionaste la opcion 2: ");
                     opcion2ProDeLB(scanner);
                     break;
-                case 3:
+                case "3":
                     System.out.println("Seleccionaste la opcion 3: ");
                     opcion3Rover(scanner);
                     break;
-                case 4:
+                case "4":
                     System.out.println("Seleccionaste la opcion 4: ");
                     opcion4Regolito(scanner);
                     break;
-                case 5:
+                case "5":
                     System.out.println("Seleccionaste la opcion 5: ");
                     opcion5Salir();
+                    continuar = false;
                     break;
                 default:
                     System.out.println("Seleccionaste un valor no valido: ");
@@ -72,7 +73,7 @@ public class TP_Grupo4 {
                     }
                     break;
             }
-        } while (opcion != 5 && fallasconsecutivas < ERRORESCONS);
+        } while (continuar && fallasconsecutivas < ERRORESCONS);
     }
 
     
