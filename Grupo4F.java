@@ -132,7 +132,7 @@ public class TP_Grupo4 {
     public static void opcion2ProDeLB(Scanner scanner) {
         final double CONSUMO_AGUA_POR_HORA = 3.5;
         final double CONSUMO_ENERGIA_POR_HORA = 12.0;
-        char letra;
+        boolean continuarProDeLB = true;
 
         do {
             System.out.println("-GESTION DE PROTOCOLOS DE LA BASE-");
@@ -143,15 +143,10 @@ public class TP_Grupo4 {
             System.out.println("d) Modo reposo.");
             System.out.println("z) Volver al menu principal.");
             
-            String entradaProDeLB = scanner.next().trim().toLowerCase();
-            if (entradaProDeLB.length() == 1) {
-                letra = entradaProDeLB.charAt(0);
-            } else {
-                letra = 'x'; 
-            }
+            String letra = scanner.next().toLowerCase();
 
             switch (letra) {
-                case 'a': {
+                case "a": {
                     System.out.println("- GESTION INVERNADERO HIDROPONICO -");
                     System.out.println("Ingresar Horas de ciclo lumínico activo a programar, valor entre 1 y 24.");
                     int horas = scanner.nextInt();
@@ -173,7 +168,7 @@ public class TP_Grupo4 {
                     System.out.println("Energía restada: " + energiaConsumida + " kWh");
                     break;
                 }
-                case 'b': {
+                case "b": {
                     System.out.println("- GESTION DE CARGAS DE BATERIAS SOLARES-");
                     System.out.println("Ingresar nivel de radiacion solar detectado en el sensor exterior considerando valores entre 100.0 y 700.0");
                     double radiacion = scanner.nextDouble();
@@ -196,7 +191,7 @@ public class TP_Grupo4 {
                     System.out.println("4. Energia solar generada: " + energiaProducida + " kWh");
                     break;
                 }
-                case 'c': {
+                case "c": {
                     System.out.println("-GESTION DE BLINDAJE CONTRA TORMENTA DE POLVO-");
                     System.out.println("ingresar velocidad estimada del viento marciano en km/h entre 40.0 y 250.0");
                     double velocidadViento = scanner.nextDouble();
@@ -219,7 +214,7 @@ public class TP_Grupo4 {
                     System.out.println("4. Coste energetico total del despliegue defensivo: " + consumoEnergetico + " kWh");
                     break;
                 }
-                case 'd': {
+                case "d": {
                     System.out.println("-GESTION DEL MODO REPOSO-");
                     System.out.println("Ingresar horas de reposo a programar. Validas entre 1 y 48");
                     double horas = scanner.nextDouble();
@@ -247,17 +242,18 @@ public class TP_Grupo4 {
                     System.out.println("Energía consumida: " + energiaConsumida + " kWh");
                     break;
                 }
-                case 'z': {
+                case "z": {
                     System.out.println("Volviendo al menú principal...");
+                    continuarProDeLB = false;
                     break;
                 }
                 default: {
                     System.out.println("[ERROR DE SISTEMA]: Código de protocolo no reconocido por la computadora central. Operación abortada para prevenir fallas de presurización.");
-                    letra = 'z'; 
+                    continuarProDeLB = false;
                     break;
                 }
             }
-        } while (letra != 'z');
+        } while (continuarProDeLB);
     }
 
     
@@ -403,6 +399,7 @@ public class TP_Grupo4 {
         int MuestraMaximo = 0;
         int MuestrasToxicas = 0;
         double PorcentajeToxicidad;
+        String mensajeClasificacion = "";
         
         for (int i = 1; i <= CantidadMuestras; i++) {
             
@@ -422,29 +419,36 @@ public class TP_Grupo4 {
                 MuestraMaximo = i;
             }
             
-            char perclorato;
+            boolean entradaValida = false;
+            boolean esToxica = false;
+            
             do {
                 System.out.println("¿Presencia de percloratos? (s/n):");
-                String entradaPerclorato = scanner.next();
+                String entradaPerclorato = scanner.next().toLowerCase();
                 
-                if (entradaPerclorato.length() == 1) {
-                    perclorato = entradaPerclorato.charAt(0);
-                } else {
-                    perclorato = 'x';
+                switch (entradaPerclorato) {
+                    case "s":
+                        esToxica = true;
+                        entradaValida = true;
+                        break;
+                    case "n":
+                        esToxica = false;
+                        entradaValida = true;
+                        break;
+                    default:
+                        System.out.println("Error: Ingrese solo 's' o 'n'.");
+                        entradaValida = false;
+                        break;
                 }
-                
-                if (perclorato != 's' && perclorato != 'S' && perclorato != 'n' && perclorato != 'N') {
-                    System.out.println("Error: Ingrese solo 's' o 'n'.");
-                }
-            } while (perclorato != 's' && perclorato != 'S' && perclorato != 'n' && perclorato != 'N');
+            } while (!entradaValida);
             
-            if (perclorato == 's' || perclorato == 'S') {
+            if (esToxica) {
                 MuestrasToxicas = MuestrasToxicas + 1;
             }
             
             System.out.println("--- Reporte Muestra " + i + " ---");
             System.out.println("Hierro: " + PorcentajeHierro + "%");
-            if (perclorato == 's' || perclorato == 'S') {
+            if (esToxica) {
                 System.out.println("Presencia de perclorato: Sí");
                 System.out.println("Condición: Tóxica");
             } else {
@@ -466,10 +470,12 @@ public class TP_Grupo4 {
         System.out.println("Porcentaje de toxicidad: " + PorcentajeToxicidad + "%");
         
         if (PromedioHierro > 45.0 && PorcentajeToxicidad < 25.0) {
-            System.out.println("Clasificación final: LOTE APTO: Aprobado para extracción y fundición de metales.");
+            mensajeClasificacion = "Clasificación final: LOTE APTO: Aprobado para extracción y fundición de metales.";
         } else {
-            System.out.println("Clasificación final: LOTE DESCARTADO: Alta concentración de sales tóxicas o bajo rendimiento mineral.");
+            mensajeClasificacion = "Clasificación final: LOTE DESCARTADO: Alta concentración de sales tóxicas o bajo rendimiento mineral.";
         }
+        
+        System.out.println(mensajeClasificacion);
     }
 
     
